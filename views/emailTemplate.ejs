@@ -1,0 +1,105 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			display: flex;
+			;
+			align-items: center;
+			justify-content: center;
+		}
+
+		table {
+			border-collapse: collapse;
+			min-width: 40vw;
+			padding: 30px;
+		}
+
+		span {
+			border: 2px solid #000;
+			padding: 20px;
+			min-height: 40px;
+			min-width: 10vw;
+			letter-spacing: 0.2rem;
+			text-align: center;
+		}
+
+		td {
+			min-height: fit-content;
+			border: none;
+			padding: 10px;
+		}
+
+		p {
+			margin-top: 4px;
+		}
+
+		td table tr td {
+			text-align: center;
+			
+		}
+		
+		
+	</style>
+
+</head>
+
+<body>
+	<table border="1rem">
+		<tr style="border-bottom: 2px solid #000 ;">
+			<td style="width: 30vw;">
+				<p>Invoice</p> <br />
+				<p> Receipt No</p>
+			</td>
+			<td > <span> <img src="/public/barcode-306926__340.jpg"/></span></td>
+		</tr>
+		<tr>
+			<td> Allocation Ref No</td>
+			<td> <%= applicationReferenceNo %> </td>
+		</tr>
+		<tr>
+			<td> Account</td>
+			<td><%=account %></td>
+		</tr>
+		<tr>
+			<td>Amount in Words</td>
+			<td> <%=amountInNumber %> <br />
+				<%=amountInWords %></td>
+		</tr>
+		</tr>
+		
+		<tr>
+			
+			 <td colspan="2">
+				 
+				<table border="1px" style="min-width: 100% !important; width: 100% !important;">
+					<tr><th>Sr No.</th>
+					<th>Product Name</th>
+					<th>Qty</th>
+					<th>Price</th>
+					<th>Total</th>
+				</tr>
+				<% 		for(var i=0; i < product.length; i++)	{ %>
+
+			<tr border="1px">
+			<td><%= product[i].id %></td>
+			<td><%= product[i].productName %></td>
+			<td><%= product[i].productQuantity  %></td>
+			<td><%= product[i].productPrice%></td>
+			<td><%= product[i].productQuantity * product[i].productPrice %></td>
+			</tr>
+			
+		<%}%>
+		</table>
+				</td>
+	</tr>
+			
+			
+	</table>
+</body>
+
+</html>
